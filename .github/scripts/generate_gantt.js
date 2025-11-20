@@ -26,7 +26,7 @@ gantt
 function taskToGanttLine(task, sectionName, startDate) {
   const status = task.completed ? 'done' : 'active';
   const duration = parseDuration(task.duration);
-  const deps = task.dependencies.length > 0 ? `, after ${task.dependencies.join(' ')}` : '';
+  const deps = task.dependencies.length > 0 ? `, after ${task.dependencies.join(', ')}` : '';
   
   // タスク名をエスケープ
   const taskName = task.name.replace(/:/g, '：').substring(0, 50);

@@ -42,19 +42,19 @@ gantt
     フェーズ2: バックエンド開発完了 :milestone, M2, 2026-01-11, 1d
 
     section フェーズ3: フロントエンド開発
-    `LoginForm.jsx` - ログインフォーム (未作成) :active, TASK-047, 2026-01-18, 21d, after TASK-004 TASK-028
-    `MachineList.jsx` - 機器一覧 (未作成) :active, TASK-050, 2026-01-23, 21d, after TASK-004 TASK-028
-    `MachineForm.jsx` - 機器フォーム (未作成) :active, TASK-051, 2026-01-28, 21d, after TASK-004 TASK-028
-    `MachineCard.jsx` - スマホ用カード (未作成) :active, TASK-052, 2026-02-02, 21d, after TASK-004 TASK-028
-    `RentalList.jsx` - 貸出一覧 (未作成) :active, TASK-053, 2026-02-07, 21d, after TASK-004 TASK-028
+    `LoginForm.jsx` - ログインフォーム (未作成) :active, TASK-047, 2026-01-18, 21d, after TASK-004, TASK-028
+    `MachineList.jsx` - 機器一覧 (未作成) :active, TASK-050, 2026-01-23, 21d, after TASK-004, TASK-028
+    `MachineForm.jsx` - 機器フォーム (未作成) :active, TASK-051, 2026-01-28, 21d, after TASK-004, TASK-028
+    `MachineCard.jsx` - スマホ用カード (未作成) :active, TASK-052, 2026-02-02, 21d, after TASK-004, TASK-028
+    `RentalList.jsx` - 貸出一覧 (未作成) :active, TASK-053, 2026-02-07, 21d, after TASK-004, TASK-028
     フェーズ3: フロントエンド開発完了 :milestone, M3, 2026-02-12, 1d
 
     section フェーズ4: 機能実装
-    ログイン機能 :active, TASK-106, 2026-02-19, 42d, after TASK-047 TASK-079
-    管理者権限判定 :active, TASK-107, 2026-02-28, 42d, after TASK-047 TASK-079
-    認証状態の永続化 (Zustand persist) :active, TASK-108, 2026-03-09, 42d, after TASK-047 TASK-079
-    認証ガード :active, TASK-109, 2026-03-18, 42d, after TASK-047 TASK-079
-    機器一覧表示 :active, TASK-110, 2026-03-27, 42d, after TASK-047 TASK-079
+    ログイン機能 :active, TASK-106, 2026-02-19, 42d, after TASK-047, TASK-079
+    管理者権限判定 :active, TASK-107, 2026-02-28, 42d, after TASK-047, TASK-079
+    認証状態の永続化 (Zustand persist) :active, TASK-108, 2026-03-09, 42d, after TASK-047, TASK-079
+    認証ガード :active, TASK-109, 2026-03-18, 42d, after TASK-047, TASK-079
+    機器一覧表示 :active, TASK-110, 2026-03-27, 42d, after TASK-047, TASK-079
     フェーズ4: 機能実装完了 :milestone, M4, 2026-04-05, 1d
 
     section フェーズ5: 品質向上
@@ -108,9 +108,9 @@ gantt
     `app/(main)/users/[employee_no]/page.jsx` - [id]から :active, TASK-041, 2025-12-04, 7d
     `app/(main)/users/actions.jsx` - Server Actions (未 :active, TASK-043, 2025-12-05, 7d
     `app/ThemeRegistry.jsx` - MUIテーマ設定 (components/The :active, TASK-046, 2025-12-06, 7d
-    `LoginForm.jsx` - ログインフォーム (未作成) :active, TASK-047, 2025-12-07, 21d, after TASK-004 TASK-028
-    `MachineList.jsx` - 機器一覧 (未作成) :active, TASK-050, 2025-12-08, 21d, after TASK-004 TASK-028
-    `MachineForm.jsx` - 機器フォーム (未作成) :active, TASK-051, 2025-12-09, 21d, after TASK-004 TASK-028
+    `LoginForm.jsx` - ログインフォーム (未作成) :active, TASK-047, 2025-12-07, 21d, after TASK-004, TASK-028
+    `MachineList.jsx` - 機器一覧 (未作成) :active, TASK-050, 2025-12-08, 21d, after TASK-004, TASK-028
+    `MachineForm.jsx` - 機器フォーム (未作成) :active, TASK-051, 2025-12-09, 21d, after TASK-004, TASK-028
 
     section 中優先度
     起動時のブラウザ/アプリ判定 :active, TASK-145, 2025-12-10, 14d
