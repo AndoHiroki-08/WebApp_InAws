@@ -78,3 +78,6 @@ project.lock.json
 # OS
 Thumbs.db
 Desktop.ini
+
+# Scripts intermediate files
+.github/scripts/tasks.json
