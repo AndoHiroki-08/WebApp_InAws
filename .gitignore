@@ -75,6 +75,11 @@ project.lock.json
 *.sqlite
 *.sqlite3
 
+# Docker
+.env
+.env.production
+docker-compose.override.yml
+
 # OS
 Thumbs.db
 Desktop.ini

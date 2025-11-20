@@ -1,2 +1,48 @@
+# ビルド成果物
 **/bin/
 **/obj/
+out/
+publish/
+
+# Visual Studio関連
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGetパッケージ
+*.nupkg
+*.snupkg
+packages/
+
+# ログファイル
+*.log
+logs/
+
+# 環境変数ファイル
+.env
+.env.local
+
+# テスト結果
+TestResults/
+*.trx
+
+# Git関連
+.git
+.gitignore
+
+# ドキュメント
+*.md
+README.md
+
+# IDE設定
+.vscode
+.idea
+
+# その他
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db

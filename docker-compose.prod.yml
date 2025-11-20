@@ -1,0 +1,98 @@
+# =====================================================
+# Docker Compose 本番環境用構成ファイル
+# Rental Machine App - 本番環境設定
+# =====================================================
+
+services:
+  # =====================================================
+  # PostgreSQL データベース（本番環境）
+  # =====================================================
+  database:
+    image: postgres:16-alpine
+    container_name: rental_machine_db_prod
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-rental_machine_db}
+      TZ: Asia/Tokyo
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data_prod:/var/lib/postgresql/data
+      - ./database/01_create_tables.sql:/docker-entrypoint-initdb.d/01_create_tables.sql
+    networks:
+      - rental_machine_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # =====================================================
+  # ASP.NET Core バックエンドAPI（本番環境）
+  # =====================================================
+  backend:
+    build:
+      context: ./web_backend
+      dockerfile: Dockerfile
+    container_name: rental_machine_backend_prod
+    restart: always
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:80
+      ConnectionStrings__DefaultConnection: ${CONNECTION_STRING}
+      TZ: Asia/Tokyo
+    ports:
+      - "5000:80"
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - rental_machine_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:80/weatherforecast || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # =====================================================
+  # Next.js フロントエンド（本番環境）
+  # =====================================================
+  frontend:
+    build:
+      context: ./web_frontend
+      dockerfile: Dockerfile.prod
+    container_name: rental_machine_frontend_prod
+    restart: always
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+      TZ: Asia/Tokyo
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - rental_machine_network
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+# =====================================================
+# ネットワーク定義
+# =====================================================
+networks:
+  rental_machine_network:
+    driver: bridge
+
+# =====================================================
+# ボリューム定義（データの永続化）
+# =====================================================
+volumes:
+  postgres_data_prod:
+    driver: local

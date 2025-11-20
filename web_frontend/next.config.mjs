@@ -13,6 +13,9 @@ const nextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
   },
+
+  // Docker本番環境用: standalone出力を有効化
+  output: process.env.NODE_ENV === 'production' ? 'standalone' : undefined,
 };
 
 export default nextConfig;

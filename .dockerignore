@@ -1,0 +1,36 @@
+# Git関連
+.git
+.gitignore
+.github
+
+# ドキュメント
+*.md
+README.md
+LICENSE
+
+# IDE設定
+.vscode
+.vs
+.idea
+*.swp
+*.swo
+*~
+
+# ログファイル
+*.log
+logs
+
+# 環境変数ファイル
+.env
+.env.local
+.env.*.local
+
+# OS関連
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# その他
+*.tmp
+*.bak
+*.old
