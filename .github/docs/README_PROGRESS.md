@@ -195,7 +195,37 @@ npm install @tanstack/react-query zod react-hook-form
 
 - [copilot-instructions.md](./copilot-instructions.md) - 元となる仕様書
 - [PROGRESS.md](./PROGRESS.md) - 実装進捗チェックシート本体
+- [TASKS.md](./TASKS.md) - タスク一覧（自動生成）
+- [GANTT.md](./GANTT.md) - ガントチャート（自動生成）
+- [scripts/README.md](../scripts/README.md) - タスク生成スクリプトの使い方
 
 ---
 
 **最終更新**: 2025-11-20
+
+## タスク管理ツール
+
+PROGRESS.mdのチェックリストをより効果的に管理するため、以下のツールが利用可能です：
+
+### タスク一覧とガントチャートの生成
+
+PROGRESS.mdから自動的にタスク一覧とガントチャートを生成できます。
+
+**使い方**:
+```bash
+cd .github/scripts
+node generate_tasks.js
+```
+
+**生成されるファイル**:
+- **TASKS.md**: 全191タスクの詳細一覧（優先度別・セクション別）
+- **GANTT.md**: Mermaid形式のガントチャート（フェーズ別・優先度別）
+
+**特徴**:
+- ✅ 優先度に基づいた自動分類（最優先・高・中・低）
+- 📊 進捗統計の自動計算
+- 🔗 タスク間の依存関係の可視化
+- 📅 フェーズベースのスケジュール管理（6フェーズ）
+- 🎯 マイルストーンの表示
+
+詳しくは [scripts/README.md](../scripts/README.md) を参照してください。
